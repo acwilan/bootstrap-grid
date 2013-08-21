@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bootstrap-grid Sample app</title>
+
+        <!-- social media tags -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@acwilan">
+        <meta name="twitter:title" content="bootstrapGrid">
+        <meta name="twitter:description" content="Bootstrap-based grid and form, master-detail.">
+        <meta name="twitter:creator" content="@acwilan">
+        <meta property="og:title" content="bootstrapGrid" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://github.com/acwilan/bootstrap-grid" />
+        <meta property="og:description" content="Bootstrap-based grid, form, and master detail.">
+
+        <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+        <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+        
+        <style type="text/css">
+            #content { margin-top: 60px; }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#"><i class="icon-white icon-home"></i> bootstrap-grid</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" role="button" id="menu_usage">
+                                    Usage
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" id="content">
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="btn-toolbar">
+                                <a href="#" class="btn" id="btn-add">
+                                    <i class="icon-plus"></i> Agregar
+                                </a>
+                                <a href="#" class="btn" id="btn-del">
+                                    <i class="icon-trash"></i> Eliminar seleccionados
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <table class="table table-striped table-bordered" id="myGrid">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>Name</th>
+                                        <th>Birthday</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- compiled Javascript --><% scripts.forEach( function ( file ) { %>
+        <script type="text/javascript" src="<%= file %>"></script><% }); %>
+        
+        <script type="text/javascript">
+            (function($, undefined) {
+                $('#myGrid').rapiGrid({
+                    colModel: [
+                        {
+                            name: 'name',
+                            title: 'Name',
+                            type: 'default'
+                        },
+                        {
+                            name: 'birthday',
+                            title: 'Birthday',
+                            type: 'date'
+                        },
+                        {
+                            name: 'salary',
+                            title: 'Salary',
+                            type: 'money',
+                            currencySymbol: 'Q'
+                        }
+                    ]
+                });
+            })(jQuery);
+        </script>
+    </body>
+</html>
